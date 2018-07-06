@@ -4,4 +4,5 @@ import com.jaredselling.tasks.domain.Task;
 
 public interface TaskService {
     Iterable<Task> list();
+    Task saveTask(Task task);
 }

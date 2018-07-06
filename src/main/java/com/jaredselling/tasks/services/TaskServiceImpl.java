@@ -2,10 +2,9 @@ package com.jaredselling.tasks.services;
 
 import com.jaredselling.tasks.domain.Task;
 import com.jaredselling.tasks.repositories.TaskRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class TaskServiceImpl implements TaskService {
 
     private TaskRepository taskRepository;
@@ -17,5 +16,10 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public Iterable<Task> list() {
         return this.taskRepository.findAll();
+    }
+
+    @Override
+    public Task saveTask(Task task) {
+        return this.taskRepository.save(task);
     }
 }

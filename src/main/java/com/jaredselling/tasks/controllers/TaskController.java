@@ -2,9 +2,7 @@ package com.jaredselling.tasks.controllers;
 
 import com.jaredselling.tasks.domain.Task;
 import com.jaredselling.tasks.services.TaskServiceImpl;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/tasks")
@@ -21,6 +19,8 @@ public class TaskController {
         return this.taskService.list();
     }
 
-
-
+    @PostMapping("/save")
+    public Task saveTask(@RequestBody Task task) {
+        return this.taskService.saveTask(task);
+    }
 }
